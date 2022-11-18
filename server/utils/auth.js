@@ -17,6 +17,7 @@ module.exports = {
 
     if (!token) {
       return res.status(400).json({ message: 'You have no token!' });
+      // return req <<<<<QUESTION
     }
 
     // verify token and get user data out of it
@@ -27,7 +28,7 @@ module.exports = {
       console.log('Invalid token');
       return res.status(400).json({ message: 'invalid token!' });
     }
-
+    //return req <<<<QUESTION????
     // send to next endpoint
     next();
   },
