@@ -18,7 +18,6 @@ const resolvers = {
 
       if (!user) {
         console.log("no user");
-
         throw new AuthenticationError(
           "could not find an account with this username"
         );
@@ -26,6 +25,7 @@ const resolvers = {
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
+        console.log('wrong password')
         throw new AuthenticationError("incorrect password");
       }
 
