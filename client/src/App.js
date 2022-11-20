@@ -12,11 +12,6 @@ import Navbar from "./components/Navbar";
 
 import { setContext } from "@apollo/client/link/context";
 
-// const client = new ApolloClient({
-//   uri: "/graphql",
-//   cache: new InMemoryCache(),
-// });
-
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
   uri: "/graphql",
