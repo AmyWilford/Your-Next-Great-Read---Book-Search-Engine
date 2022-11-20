@@ -45,6 +45,6 @@ Upon page load - users are presented with a search page where they can look up b
 
 ## Demo:
 
-[Vide deployed Site on Heroku](https://drive.google.com/file/d/1YPzLBcUlBRjSgMyd_qIeTbJk4qQmmnRx/view)
+[Vide deployed Site on Heroku]()
 
 
