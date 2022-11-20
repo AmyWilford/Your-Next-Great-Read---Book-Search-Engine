@@ -6,11 +6,12 @@ import {
   InMemoryCache,
   createHttpLink,
 } from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
+
 import SearchBooks from "./pages/SearchBooks";
 import SavedBooks from "./pages/SavedBooks";
 import Navbar from "./components/Navbar";
 
-import { setContext } from "@apollo/client/link/context";
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -28,7 +29,7 @@ const authLink = setContext((_, { headers }) => {
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : "",
+      authorization: token ? `Bearer ${token}` : '',
     },
   };
 });
@@ -43,7 +44,6 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <>
           <Navbar />
           <Routes>
             <Route path="/" element={<SearchBooks />} />
@@ -53,7 +53,6 @@ function App() {
               element={<h1 className="display-2">Wrong page!</h1>}
             />
           </Routes>
-        </>
       </Router>
     </ApolloProvider>
   );
