@@ -13,11 +13,11 @@
 - [Demo](#demo)
 
 ## Description:
-This application will help you find your next great read. An online search engine to find books (via google books api). Users have the option to create a personal acount to save interesting books to a personal list - which can be added to - or removed from - at any time when the user is logged in. 
+This application will help you find your next great read. An online search engine to find books (via google books api). Users have the option to create a personal account to save interesting books to a personal list - which can be added to - or removed from - at any time when the user is logged in. 
 
-This a refractoring project, with original code provided as a RESTful API - and rewritten as a GraphQL API built using Apollo Server.
+This a refactoring project, with original code provided as a RESTful API - and rewritten as a GraphQL API built using Apollo Server.
 
-Refreactured elements included:
+Refracted elements include:
 1. Set up an Apollo Server to use GraphQL queries and mutations to fetch and modify data, replacing the existing RESTful API.
 2.  Modify the existing authentication middleware so that it works in the context of a GraphQL API.
 3. Create an Apollo Provider so that requests can communicate with an Apollo Server.
@@ -47,6 +47,6 @@ Upon page load - users are presented with a search page where they can look up b
 
 ## Demo:
 
-[Vide deployed Site on Heroku]()
+[View deployed Site on Heroku](#https://rocky-shore-44662.herokuapp.com/)
 
 
