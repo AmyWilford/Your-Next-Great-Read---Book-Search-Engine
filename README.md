@@ -27,14 +27,16 @@ Refreactured elements included:
 
 - MongoDB
 - Mongoose
-- graphql
-- apollo-server-express
-- apollo/client
-- jwt-decode
-- react
-- express.js
-- jsonwebtoken
-- bcrypt
+- MongoDB Atlas
+- Apollo-server-express
+- Apollo/client
+- Graphql
+- Jwt-decode
+- React
+- Express.js
+- Node.js
+- Jsonwebtoken
+- Bcrypt
 - Google Books API
 
 ## Installation:
