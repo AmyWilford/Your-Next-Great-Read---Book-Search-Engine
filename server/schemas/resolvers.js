@@ -25,7 +25,7 @@ const resolvers = {
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        console.log('wrong password')
+        console.log("wrong password");
         throw new AuthenticationError("incorrect password");
       }
 
@@ -40,7 +40,7 @@ const resolvers = {
 
     saveBook: async (parent, { newBook }, context) => {
       if (context.user) {
-        const updatedUser = await Book.findOneAndUpdate(
+        const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
           { $addToSet: { savedBooks: newBook } },
           { new: true }
@@ -52,9 +52,9 @@ const resolvers = {
 
     removeBook: async (parent, { bookId }, context) => {
       if (context.user) {
-        const updatedUser = await Book.findByIdAndUpdate(
+        const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedbook: { bookId } } }, //is this right?
+          { $pull: { savedbook: { bookId } } },
           { new: true }
         );
         return updatedUser;
