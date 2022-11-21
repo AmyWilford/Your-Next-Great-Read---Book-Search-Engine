@@ -47,6 +47,6 @@ Upon page load - users are presented with a search page where they can look up b
 
 ## Demo:
 
-[View deployed Site on Heroku](#https://rocky-shore-44662.herokuapp.com/)
+[View deployed Site on Heroku](https://rocky-shore-44662.herokuapp.com/)
 
 
