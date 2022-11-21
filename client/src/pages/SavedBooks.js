@@ -10,22 +10,26 @@ import {
 // import { getMe, deleteBook } from '../utils/API';
 import Auth from "../utils/auth";
 import { removeBookId } from "../utils/localStorage";
+// import useQuery and useMutation form apollo client
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_ME } from "../utils/queries";
 import { REMOVE_BOOK } from "../utils/mutations";
 
 const SavedBooks = () => {
+  // initialize Get_ME and Remove_book actions in variables
   const { loading, data } = useQuery(GET_ME);
   const [removeBook] = useMutation(REMOVE_BOOK);
+  // If there is data - return data from me requeuest - or return an empty object - saved to userData variable
   const userData = data?.me || {};
 
-  // create function that accepts the book's mongo _id value as param and deletes the book from the database
+  // Function to delete book from the user profile - accepts the book's mongo _id as param
   const handleDeleteBook = async (bookId) => {
+    // Check that user is logged in
     const token = Auth.loggedIn() ? Auth.getToken() : null;
     if (!token) {
       return false;
     }
-
+    // If user is logged in - run removeBook mutataion using bookId argument - remove book or catch error
     try {
       const { data } = await removeBook({
         variables: { bookId },
@@ -36,6 +40,7 @@ const SavedBooks = () => {
     }
   };
 
+  // While state of user data is loading - show loading on page. Once complete, return user profile with updated saved books
   if (loading) {
     return <h2>LOADING...</h2>;
   }

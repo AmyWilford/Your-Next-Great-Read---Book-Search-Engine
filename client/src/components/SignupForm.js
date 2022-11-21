@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 
+// Import auth
 import Auth from '../utils/auth';
+// Import useMutation from apolloclient
 import {useMutation } from '@apollo/client';
+// Import Add_User mutation
 import {ADD_USER} from '../utils/mutations';
 
-
+// Function to sign up a user
 const SignupForm = () => {
   // set initial form state
   const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
@@ -29,7 +32,7 @@ const SignupForm = () => {
       event.preventDefault();
       event.stopPropagation();
     }
-
+    // If the form is good - add user using forminput and authorizen a user token. Otherwise, catch the error
     try {
       const {data} = await addUser({
         variables: {...userFormData}
@@ -40,7 +43,7 @@ const SignupForm = () => {
       console.error(err);
       setShowAlert(true);
     }
-
+// Reset userForm Data state to empty strings
     setUserFormData({
       username: '',
       email: '',
@@ -105,5 +108,6 @@ const SignupForm = () => {
     </>
   );
 };
+// export Signup form component
 
 export default SignupForm;

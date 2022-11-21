@@ -1,9 +1,11 @@
 // see SignupForm.js for comments
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
-
+// Import Auth
 import Auth from '../utils/auth';
+// Import useMutation from apolloclient
 import {useMutation } from '@apollo/client';
+// Import Login_user mutation
 import {LOGIN_USER} from '../utils/mutations';
 
 const LoginForm = () => {
@@ -26,7 +28,7 @@ const LoginForm = () => {
       event.preventDefault();
       event.stopPropagation();
     }
-
+    // If form information is correct - login user, otherwise catch error
     try {
       const {data} = await login({
         variables: {...userFormData},
@@ -37,7 +39,7 @@ const LoginForm = () => {
       console.error(err);
       setShowAlert(true);
     }
-
+    // reset form data to empty strings
     setUserFormData({
       username: '',
       email: '',
@@ -86,5 +88,5 @@ const LoginForm = () => {
     </>
   );
 };
-
+// export LoginForm component
 export default LoginForm;

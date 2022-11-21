@@ -42,6 +42,7 @@ const SearchBooks = () => {
 
     try {
       // const response = await searchGoogleBooks(searchInput);
+      // Fetch request to googlebooks api using serachInput
       const response = await fetch(
         `https://www.googleapis.com/books/v1/volumes?q=${searchInput}`
       );
@@ -67,12 +68,12 @@ const SearchBooks = () => {
     }
   };
 
-  // create function to handle saving a book to our database
+  //  function to handle saving a book to the database
   const handleSaveBook = async (bookId) => {
-    // find the book in `searchedBooks` state by the matching id
+    // Locate the book in `searchedBooks` state by the matching id
     const bookToSave = searchedBooks.find((book) => book.bookId === bookId);
 
-    // get token
+    // Check auth token - if none, exit opration - if it's there - save book
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
     if (!token) {
